@@ -5,8 +5,9 @@ FROM php:5.6
 MAINTAINER Jhon Eslava <jhonjairo048@gmail.com>
 
 # Install Git!
+# Install php5-memcached!
 # Install Phalcon Dependences!
-RUN apt-get update && apt-get install -y php5-dev php5-mysql gcc libpcre3-dev git --no-install-recommends && rm -r /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y php5-memcached php5-dev php5-mysql gcc libpcre3-dev git --no-install-recommends && rm -r /var/lib/apt/lists/*
 
 # Download And Install Last Phalcon
 RUN git clone --depth=1 git://github.com/phalcon/cphalcon.git && cd cphalcon/build && ./install && docker-php-ext-enable phalcon
