@@ -15,6 +15,8 @@ RUN apt-get update && apt-get install -y libmemcached-dev && pecl install memcac
 RUN docker-php-ext-install mysqli
 # Install Runkit!
 RUN pecl install runkit && docker-php-ext-enable runkit
+# Install Graphviz!
+RUN apt-get update && apt-get install -y graphviz --no-install-recommends && rm -r /var/lib/apt/lists/*
 
 # Download And Install Last Phalcon
 RUN git clone --depth=1 git://github.com/phalcon/cphalcon.git && cd cphalcon/build && ./install && docker-php-ext-enable phalcon
