@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -y git --no-install-recommends && rm -r /v
 RUN apt-get update && apt-get install -y libmemcached-dev && pecl install memcached && docker-php-ext-enable memcached && rm -r /var/lib/apt/lists/*
 # Install mysqli!
 RUN docker-php-ext-install mysqli
+# Install PDO Mysql!
+RUN docker-php-ext-install pdo_mysql
 # Install Runkit!
 RUN pecl install runkit && docker-php-ext-enable runkit
 # Install Graphviz!
@@ -23,3 +25,8 @@ RUN git clone --depth=1 git://github.com/phalcon/cphalcon.git && cd cphalcon/bui
 
 # Remove Phalcon Git Directory
 RUN cd ../../ && rm -rf ./cphalcon/
+
+# Enable mod_rewrite
+RUN a2enmod rewrite
+# Restart apache
+RUN service apache2 restart
