@@ -7,5 +7,6 @@ Docker PHP Images With More Tools!
  - Phalcon (last, 2.0.9, 2.0.10)
  - Zend (last)
  - mysqli PHP Ext (last)
+ - PDO Mysql PHP Ext (last)
  - Runkit PHP Ext (last)
  - Graphviz (last)
